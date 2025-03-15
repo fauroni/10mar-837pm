@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const cartService = require('../services/cartService');
-const authenticateToken = require('../middleware/UserAuth');
+const authenticateToken = require('../middlewares/UserAuth');
 
 // Apply the authenticateToken middleware to all routes
 router.use(authenticateToken);

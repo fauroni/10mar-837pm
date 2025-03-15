@@ -7,7 +7,12 @@ const pool = require('./database');
 const productsRouter = require('./routes/products');
 
 const app = express();
-
+// middlewares
+app.use(cors()); // enable cross origins resources sharing (--> only works for websites)
+app.use(express.json());
+// if off, a frontend must be on the same domain to access your api
+// backend is hosted on example.com
+// then frotend is hosted on xyz.example.com to access or example.com/xyz.html
 const userRoutes = require('./routes/users');
 const cartRoutes = require('./routes/cart');
 
@@ -15,12 +20,7 @@ const cartRoutes = require('./routes/cart');
 app.use('/api/users', userRoutes);
 app.use('/api/cart', cartRoutes);
 
-// middlewares
-app.use(cors()); // enable cross origins resources sharing (--> only works for websites)
-app.use(express.json());
-// if off, a frontend must be on the same domain to access your api
-// backend is hosted on example.com
-// then frotend is hosted on xyz.example.com to access or example.com/xyz.html
+
 
 app.use('/api/products', productsRouter);
 
