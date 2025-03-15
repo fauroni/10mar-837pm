@@ -2,7 +2,7 @@ const express = require('express');
 const AuthenticateWithJWT = require('../middlewares/AuthenticateWithJWT');
 const userService = require('../services/userService')
 const router = express.Router();
-
+const jwt = require('jsonwebtoken')
 // POST register a new user
 router.post('/register', async (req, res) => {
     try {
@@ -42,6 +42,7 @@ router.post('/register', async (req, res) => {
       
       res.json({ message: "Login successful"}, token, { user_id: user.id });
     } catch (error) {
+        console.error(error);
       res.status(401).json({ message: error.message });
     }
   });
