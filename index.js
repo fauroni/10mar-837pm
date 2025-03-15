@@ -9,7 +9,11 @@ const productsRouter = require('./routes/products');
 const app = express();
 
 const userRoutes = require('./routes/users');
+const cartRoutes = require('./routes/cart');
+
+
 app.use('/api/users', userRoutes);
+app.use('/api/cart', cartRoutes);
 
 // middlewares
 app.use(cors()); // enable cross origins resources sharing (--> only works for websites)
