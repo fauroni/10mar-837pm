@@ -23,12 +23,13 @@ async function registerUser({ name, email, password, salutation, marketingPrefer
 }
 
 async function loginUser(email, password) {
-  const user = await userData.getUserByEmail(email);
+  const user = await userData.getUserByEmail(email);  
   if (!user) {
     throw new Error('Invalid email or password');
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
+  console.log('pass: ', isPasswordValid);
   if (!isPasswordValid) {
     throw new Error('Invalid email or password');
   }
