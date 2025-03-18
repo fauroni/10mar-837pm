@@ -61,6 +61,7 @@ router.put('/me', AuthenticateWithJWT, async (req, res) => {
     await userService.updateUserDetails(userId, userDetails);
     res.json({ message: "User details updated successfully" });
   } catch (error) {
+    console.error(error);
     res.status(400).json({ message: error.message });
   }
 });

@@ -14,7 +14,7 @@ async function getUserById(userId) {
 }
 
 async function createUser({name, email, password, salutation, country, marketingPreferences}) {
- 
+ console.log("CREATE USER")
   console.log(name, email, password)
   // validate to make that name, email and password
   if (!name || !email || !password || name.length > 100) {
@@ -74,13 +74,17 @@ async function createUser({name, email, password, salutation, country, marketing
 // usually we do a PUT instead of PATCH
 // if we update the user profile, we are actually sending a NEW profile over
 // even if there is only change to one or two fields
-async function updateUser(id, name, email, salutation, country, marketingPreferences) {
+async function updateUser(id, {name, email, salutation, country, marketingPreferences}) {
+  
+  
+  console.log("Update user")
   // check if the id is truthly and is a number
   if (!id || typeof id !== 'number') {
     throw new Error('Invalid user ID');
   }
 
   console.log(id);
+  console.log(name, email, salutation, country, marketingPreferences)
 
   const connection = await pool.getConnection();
   try {
