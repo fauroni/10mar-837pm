@@ -5,6 +5,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken')
 // POST register a new user
 router.post('/register', async (req, res) => {
+ 
   try {
     const {
       name,

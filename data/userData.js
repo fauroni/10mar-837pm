@@ -13,7 +13,9 @@ async function getUserById(userId) {
   return rows[0];
 }
 
-async function createUser(name, email, password, salutation, country, marketingPreferences) {
+async function createUser({name, email, password, salutation, country, marketingPreferences}) {
+ 
+  console.log(name, email, password)
   // validate to make that name, email and password
   if (!name || !email || !password || name.length > 100) {
     throw new Error("Invalid name, email or password");
