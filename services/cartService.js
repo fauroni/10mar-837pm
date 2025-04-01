@@ -25,4 +25,3 @@ module.exports = {
   getCartContents,
   updateCart // Only bulk update is needed now
 };
-
