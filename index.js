@@ -15,14 +15,16 @@ app.use(express.json());
 // then frotend is hosted on xyz.example.com to access or example.com/xyz.html
 const userRoutes = require('./routes/users');
 const cartRoutes = require('./routes/cart');
+const checkoutRoutes = require('./routes/checkout');
 
 
 app.use('/api/users', userRoutes);
 app.use('/api/cart', cartRoutes);
-
+app.use('/api/checkout', checkoutRoutes);
 
 
 app.use('/api/products', productsRouter);
+
 
 
 
